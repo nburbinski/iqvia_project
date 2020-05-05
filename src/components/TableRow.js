@@ -19,7 +19,9 @@ const TableRow = ({ data, total }) => {
       </td>
       <td>{data.covid_deaths ? data.covid_deaths : 0}</td>
       <td>
-        {data.covid_deaths ? ((data.covid_deaths / total) * 100).toFixed(2) : 0}
+        {data.covid_deaths && data.covid_deaths > 1
+          ? ((data.covid_deaths / total) * 100).toFixed(2)
+          : 0}
         %
       </td>
     </tr>
