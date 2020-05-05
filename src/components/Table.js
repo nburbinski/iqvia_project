@@ -8,9 +8,14 @@ const Table = ({ data, totalDeaths, search }) => {
   }
 
   // For current data set, filter out other data and sort in descending order
+  // Values from API < 10 return nothing, so default to 0
   var sortedData = data
     .filter((state) => state.state !== "United States")
-    .sort((a, b) => b.covid_deaths - a.covid_deaths);
+    .sort(
+      (a, b) =>
+        (b.covid_deaths ? b.covid_deaths : 0) -
+        (a.covid_deaths ? a.covid_deaths : 0)
+    );
 
   // Filter by search parameters
   if (search) {
