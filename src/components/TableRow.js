@@ -5,20 +5,22 @@ const TableRow = ({ data, total }) => {
   const endDate = new Date(data.end_week);
 
   return (
-    <tr>
-      <td>{data.state}</td>
-      <td>
+    <tr data-testid="table-row">
+      <td data-testid="state">{data.state}</td>
+      <td data-testid="start-date">
         {`${
           startDate.getMonth() + 1
         }/${startDate.getDate()}/${startDate.getFullYear()}`}
       </td>
-      <td>
+      <td data-testid="end-date">
         {`${
           endDate.getMonth() + 1
         }/${endDate.getDate()}/${endDate.getFullYear()}`}
       </td>
-      <td>{data.covid_deaths ? data.covid_deaths : 0}</td>
-      <td>
+      <td data-testid="covid-deaths">
+        {data.covid_deaths ? data.covid_deaths : 0}
+      </td>
+      <td data-testid="covid-deaths-percentage">
         {data.covid_deaths && data.covid_deaths > 1
           ? ((data.covid_deaths / total) * 100).toFixed(2)
           : 0}
