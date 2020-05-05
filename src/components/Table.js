@@ -35,7 +35,7 @@ const Table = ({ data, totalDeaths, search }) => {
           <th>% US Covid-19 Deaths</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody data-testid="table-list">
         {sortedData.length >= 1 ? (
           sortedData.map((row) => (
             <TableRow key={row.state} data={row} total={totalDeaths} />
